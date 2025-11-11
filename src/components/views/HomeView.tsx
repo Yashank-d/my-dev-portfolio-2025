@@ -31,7 +31,7 @@ const HomeView = () => {
               href="mailto:yashank.design@gmail.com"
               className="flex items-center gap-2 text-gray-300 hover:text-primary-accent transition-colors rounded-full border border-glass-border bg-nav-glass-bg px-5 py-2"
             >
-              <FiMail /> yashank.devaraja@gmail.com
+              <FiMail /> yashank.design@gmail.com
             </a>
             <a
               href="https://www.linkedin.com/in/yashankd/"
