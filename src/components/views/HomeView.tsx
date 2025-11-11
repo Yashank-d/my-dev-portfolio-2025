@@ -28,13 +28,13 @@ const HomeView = () => {
 
           <div className="flex gap-4 md:gap-6 mt-12 lg:mt-8 flex-wrap">
             <a
-              href="mailto:yashank.devaraja@gmail.com"
+              href="mailto:yashank.design@gmail.com"
               className="flex items-center gap-2 text-gray-300 hover:text-primary-accent transition-colors rounded-full border border-glass-border bg-nav-glass-bg px-5 py-2"
             >
               <FiMail /> yashank.devaraja@gmail.com
             </a>
             <a
-              href="https://linkedin.com/in/your-linkedin"
+              href="https://www.linkedin.com/in/yashankd/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-gray-300 hover:text-primary-accent transition-colors rounded-full border border-glass-border bg-nav-glass-bg px-5 py-2"
@@ -42,7 +42,7 @@ const HomeView = () => {
               <FiLinkedin /> LinkedIn
             </a>
             <a
-              href="https://github.com/your-github"
+              href="https://github.com/Yashank-d"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-gray-300 hover:text-primary-accent transition-colors rounded-full border border-glass-border bg-nav-glass-bg px-5 py-2"
