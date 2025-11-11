@@ -1,65 +1,149 @@
-import Image from "next/image";
+"use client";
+
+import React, { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import GlassCard from "@/components/ui/GlassCard";
+import BottomNav, { type View } from "@/components/layout/BottomNav";
+import HomeView from "@/components/views/HomeView";
+import SummaryView from "@/components/views/SummaryView";
+import TimelineModal from "@/components/modals/TimelineModal";
+import SkillsView from "@/components/views/SkillsView";
+import ProjectsView from "@/components/views/ProjectsView";
+import ContactView from "@/components/views/ContactView";
+import TopNav from "@/components/layout/TopNav";
+import BackgroundGlows from "@/components/layout/BackgroundGlows";
+import Loader from "@/components/ui/Loader";
+
+const experienceContent = (
+  <div className="flex flex-col gap-6">
+    <div>
+      <h3 className="text-xl font-semibold text-white">
+        Automation Test Engineer
+      </h3>
+      <p className="text-primary-accent">Dec 2021 - Sep 2024</p>
+      <p className="text-gray-300">Tata Consultancy Services (TCS)</p>
+      <p className="mt-2 text-gray-400">
+        Engineered automation scripts and frameworks, ensuring software quality.
+        My eye for detail helped catch critical bugs before they reached users.
+      </p>
+    </div>
+  </div>
+);
+
+const educationContent = (
+  <div className="flex flex-col gap-6">
+    <div>
+      <h3 className="text-xl font-semibold text-white">
+        B.E. Mechanical Engineering
+      </h3>
+      <p className="text-primary-accent">Completed 2021</p>
+      <p className="text-gray-300">East West Institute of Technology</p>
+      <p className="mt-2 text-gray-400">
+        Graduated with a strong foundation in problem-solving and systems logic.
+      </p>
+    </div>
+  </div>
+);
+
+type ModalContent = "experience" | "education" | null;
 
 export default function Home() {
+  const [activeView, setActiveView] = useState<View>("home");
+
+  const [modalOpen, setModalOpen] = useState<ModalContent>(null);
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const openModal = (content: ModalContent) => setModalOpen(content);
+  const closeModal = () => setModalOpen(null);
+
+  const getModalContent = () => {
+    switch (modalOpen) {
+      case "experience":
+        return { title: "Professional Experience", content: experienceContent };
+      case "education":
+        return { title: "Education & Skills", content: educationContent };
+      default:
+        return { title: "", content: null };
+    }
+  };
+
+  const { title, content } = getModalContent();
+
+  const renderView = () => {
+    switch (activeView) {
+      case "home":
+        return <HomeView />;
+      case "summary":
+        return (
+          <SummaryView
+            onOpenExperience={() => openModal("experience")}
+            onOpenEducation={() => openModal("education")}
+          />
+        );
+      case "skills":
+        return <SkillsView />;
+      case "projects":
+        return <ProjectsView />;
+      case "contact":
+        return <ContactView />;
+      default:
+        return <HomeView />;
+    }
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <AnimatePresence>
+      {isLoading ? (
+        <motion.div key="loader">
+          <Loader />
+        </motion.div>
+      ) : (
+        
+        <motion.main
+          key="main-content"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <BackgroundGlows activeView={activeView} />
+
+          <GlassCard className="flex flex-col">
+            <TopNav activeView={activeView} setActiveView={setActiveView} />
+
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeView}
+                className="flex-1 h-full w-full overflow-y-auto"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                {renderView()}
+              </motion.div>
+            </AnimatePresence>
+
+            <BottomNav activeView={activeView} setActiveView={setActiveView} />
+          </GlassCard>
+
+          <AnimatePresence>
+            {modalOpen && (
+              <TimelineModal title={title} onClose={closeModal}>
+                {content}
+              </TimelineModal>
+            )}
+          </AnimatePresence>
+        </motion.main>
+      )}
+    </AnimatePresence>
   );
 }
