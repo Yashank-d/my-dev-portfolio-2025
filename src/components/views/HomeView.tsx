@@ -58,7 +58,7 @@ const HomeView = () => {
             clean, &#34;invisible&#34; code and beautiful user experiences.
           </p>
           <div className="w-24 h-1 bg-primary-accent mt-6 mb-6 mx-0 lg:ml-auto" />
-          <p className="text-xl text-primary-accent font-semibold">
+          <p className="text-lg md:text-xl text-primary-accent font-semibold">
             Great code should feel invisible.
           </p>
         </div>
