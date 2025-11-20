@@ -25,7 +25,7 @@ const ProjectsView = () => {
       </p>
 
       {/* Project Grid */}
-      <div className="w-[580px] max-w-6xl mx-auto">
+      <div className="md:w-xl max-w-6xl mx-auto">
         {/*Add this if multiple project grid grid-cols-1 md:grid-cols-2 gap-8 */}
         {projects.map((project) => (
           <ProjectCard
