@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google"; // Import Inter
+import { Inter } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
-// Configure Inter font
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-inter", // Set up a CSS variable
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
@@ -26,7 +26,10 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={`${inter.variable} font-sans`}>{children}</body>
+      <body className={`${inter.variable} font-sans`}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
