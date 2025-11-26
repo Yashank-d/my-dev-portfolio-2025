@@ -6,7 +6,7 @@ const HomeView = () => {
   return (
     <div className="relative h-full w-full p-6 md:p-12 lg:p-24 overflow-hidden rounded-2xl">
       <Image
-        src="/moody-profile.jpg"
+        src="/moody-profile_opt.jpg"
         alt="Yashank D"
         fill
         className="object-cover z-0 lg:ml-80"
