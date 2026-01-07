@@ -17,8 +17,8 @@ const TopNav = ({ activeView, setActiveView }: Props) => {
         )}
       </div>
       <a
-        href="/yashank-d-resume.pdf"
-        download="yashank-d-resume.pdf"
+        href="/Yashank_D_Resume_Primary.pdf"
+        download="Yashank_D_Resume_Primary.pdf"
         target="_blank"
         rel="noopener noreferrer"
         className="rounded-full bg-primary-accent py-2 px-5 text-base font-semibold text-black transition-all hover:brightness-110"
