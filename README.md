@@ -4,7 +4,7 @@ My personal portfolio website built from scratch with Next.js, TypeScript, Tailw
 
 ## 🚀 Live Demo
 
-View it live at your-domain.com
+View it live at yashank.in
 
 ## ✨ Features
 
