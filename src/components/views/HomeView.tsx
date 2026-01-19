@@ -29,7 +29,7 @@ const HomeView = () => {
           <div className="flex gap-4 md:gap-6 mt-12 lg:mt-8 flex-wrap">
             <a
               href="mailto:yashank.design@gmail.com"
-              className="flex items-center gap-2 text-gray-300 hover:text-primary-accent transition-colors rounded-full border border-glass-border bg-nav-glass-bg px-5 py-2"
+              className="flex items-center gap-2 text-gray-300 hover:bg-white/20 hover:shadow-lg transition-colors rounded-full border border-glass-border bg-nav-glass-bg px-5 py-2"
             >
               <FiMail /> yashank.design@gmail.com
             </a>
@@ -37,7 +37,7 @@ const HomeView = () => {
               href="https://www.linkedin.com/in/yashankd/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-gray-300 hover:text-primary-accent transition-colors rounded-full border border-glass-border bg-nav-glass-bg px-5 py-2"
+              className="flex items-center gap-2 text-gray-300 hover:bg-white/20 hover:shadow-lg transition-colors rounded-full border border-glass-border bg-nav-glass-bg px-5 py-2"
             >
               <FiLinkedin /> LinkedIn
             </a>
@@ -45,7 +45,7 @@ const HomeView = () => {
               href="https://github.com/Yashank-d"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-gray-300 hover:text-primary-accent transition-colors rounded-full border border-glass-border bg-nav-glass-bg px-5 py-2"
+              className="flex items-center gap-2 text-gray-300 hover:bg-white/20 hover:shadow-lg transition-colors rounded-full border border-glass-border bg-nav-glass-bg px-5 py-2"
             >
               <FiGithub /> GitHub
             </a>
