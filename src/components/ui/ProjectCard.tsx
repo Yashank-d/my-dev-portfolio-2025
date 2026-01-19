@@ -39,12 +39,12 @@ const ProjectCard = ({
           {title}
         </h3>
         
-        <p className="mb-6 text-sm md:text-base text-gray-400 leading-relaxed max-w-2xl">
+        <p className="mb-6 text-xs md:text-base text-gray-400 leading-relaxed max-w-2xl">
           {description}
         </p>
 
         {/* 3. Tech Tags */}
-        <div className="mb-8 flex flex-wrap gap-2">
+        <div className="mb-6 flex flex-wrap gap-2">
           {tags.map((tag) => (
             <span
               key={tag}
