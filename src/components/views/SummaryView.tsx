@@ -14,7 +14,7 @@ const SummaryView = ({ onOpenExperience, onOpenEducation }: Props) => {
 
       <p className="mb-10 max-w-3xl text-lg text-gray-300 md:text-xl">
         My journey started in QA, where I mastered the logic of breaking
-        applications. Now, I use that same critical eye to build them—crafting
+        applications. Now, I use that same critical eye to build them crafting
         pixel-perfect, resilient, and beautiful user experiences.
       </p>
 
