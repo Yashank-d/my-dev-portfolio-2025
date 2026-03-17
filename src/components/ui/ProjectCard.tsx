@@ -8,7 +8,8 @@ type ProjectProps = {
   tags: string[];
   image: string;
   liveLink?: string;
-  repoLink?: string;
+  repoLink?: string | null;
+  isPrivate?: boolean;
 };
 
 const ProjectCard = ({
@@ -18,19 +19,20 @@ const ProjectCard = ({
   image,
   liveLink,
   repoLink,
+  isPrivate,
 }: ProjectProps) => {
   return (
     <div className="group relative w-full overflow-hidden rounded-xl bg-[#111111] border border-white/5 transition-all duration-300 hover:border-white/10 hover:shadow-2xl hover:shadow-primary-accent/5">
       
       {/* 1. Image Section - Banner Style */}
-      <div className="relative aspect-[16/9] w-full overflow-hidden border-b border-white/5">
+      <div className="relative aspect-video w-full overflow-hidden border-b border-white/5">
         <Image
           src={image}
           alt={title}
           fill
           className="object-cover transition-transform duration-700 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#111111] to-transparent opacity-60" />
+        <div className="absolute inset-0 bg-linear-to-t from-[#111111] to-transparent opacity-60" />
       </div>
 
       {/* 2. Content Section */}
@@ -57,7 +59,12 @@ const ProjectCard = ({
 
         {/* 4. Action Buttons */}
         <div className="flex flex-wrap gap-4 pt-2 border-t border-white/5">
-          {repoLink && (
+          {isPrivate ? (
+            <div className="flex items-center gap-2 text-sm font-medium text-gray-500 cursor-not-allowed">
+              <FiGithub className="text-lg" /> 
+              <span className="rounded-full bg-white/10 px-2 py-0.5 text-xs border border-white/5">Private Repo</span>
+            </div>
+          ) : repoLink ? (
             <a
               href={repoLink}
               target="_blank"
@@ -67,7 +74,7 @@ const ProjectCard = ({
               <FiGithub className="text-lg transition-transform group-hover/link:scale-110" /> 
               <span>Code</span>
             </a>
-          )}
+          ) : null}
           {liveLink && (
             <a
               href={liveLink}

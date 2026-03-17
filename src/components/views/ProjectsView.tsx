@@ -12,6 +12,16 @@ const projects = [
     liveLink: "https://focusflowproject.vercel.app/",
     repoLink: "https://github.com/Yashank-d/focusflow",
   },
+  {
+    title: "thesocialplug.",
+    description:
+      "Sole founder and engineer. Built a full-stack offline social community platform for Bengaluru — event booking, QR ticketing, waitlist management, admin dashboard, team RBAC, and email delivery via Gmail SMTP. Live in production.",
+    tags: ["Next.js 16", "TypeScript", "Tailwind CSS v4", "Supabase", "Prisma", "GSAP"],
+    image: "/thesocialplug-preview.jpg",
+    liveLink: "https://thesocialplug.vercel.app",
+    repoLink: null,
+    isPrivate: true,
+  },
 ];
 
 const ProjectsView = () => {
@@ -25,8 +35,7 @@ const ProjectsView = () => {
       </p>
 
       {/* Project Grid */}
-      <div className="md:w-xl max-w-6xl mx-auto">
-        {/*Add this if multiple project grid grid-cols-1 md:grid-cols-2 gap-8 */}
+      <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
         {projects.map((project) => (
           <ProjectCard
             key={project.title}
