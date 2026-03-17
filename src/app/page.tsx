@@ -55,11 +55,18 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-
-    return () => clearTimeout(timer);
+    if (typeof document !== "undefined" && document.fonts) {
+      Promise.race([
+        document.fonts.ready,
+        new Promise((resolve) => setTimeout(resolve, 800))
+      ]).then(() => {
+        // Ensure loader runs for at least 600ms if fonts load instantly
+        setTimeout(() => setIsLoading(false), Math.max(0, 600));
+      });
+    } else {
+      const timer = setTimeout(() => setIsLoading(false), 800);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   const openModal = (content: ModalContent) => setModalOpen(content);
