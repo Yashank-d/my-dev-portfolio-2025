@@ -1,11 +1,22 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+});
+
+const clashDisplay = localFont({
+  src: [
+    { path: "../../public/fonts/ClashDisplay-Medium.woff2", weight: "500" },
+    { path: "../../public/fonts/ClashDisplay-Semibold.woff2", weight: "600" },
+    { path: "../../public/fonts/ClashDisplay-Bold.woff2", weight: "700" },
+  ],
+  variable: "--font-heading",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -36,12 +47,8 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="canonical" href="https://yashank.in" />
-        <link
-          href="https://api.fontshare.com/v2/css?f[]=clash-display@500,700,400,600&display=swap"
-          rel="stylesheet"
-        />
       </head>
-      <body className={`${inter.variable} font-sans`}>
+      <body className={`${inter.variable} ${clashDisplay.variable} font-sans`}>
         {children}
         <Analytics />
       </body>
