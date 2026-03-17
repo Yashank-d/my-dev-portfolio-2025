@@ -14,43 +14,13 @@ import TopNav from "@/components/layout/TopNav";
 import BackgroundGlows from "@/components/layout/BackgroundGlows";
 import Loader from "@/components/ui/Loader";
 
-const experienceContent = (
-  <div className="flex flex-col gap-6">
-    <div>
-      <h3 className="text-xl font-semibold text-white">
-        Software Engineer – Automation & Quality
-      </h3>
-      <p className="text-primary-accent">Dec 2021 - Sep 2024</p>
-      <p className="text-gray-300">Tata Consultancy Services (TCS) &middot; Client: LSEG</p>
-      <p className="mt-2 text-gray-400">
-        Engineered automation scripts and frameworks, ensuring software quality.
-        My eye for detail helped catch critical bugs before they reached users.
-      </p>
-    </div>
-  </div>
-);
-
-const educationContent = (
-  <div className="flex flex-col gap-6">
-    <div>
-      <h3 className="text-xl font-semibold text-white">
-        B.E. Mechanical Engineering
-      </h3>
-      <p className="text-primary-accent">Completed 2021</p>
-      <p className="text-gray-300">East West Institute of Technology</p>
-      <p className="mt-2 text-gray-400">
-        Graduated with a strong foundation in problem-solving and systems logic.
-      </p>
-    </div>
-  </div>
-);
-
-type ModalContent = "experience" | "education" | null;
+// experienceContent and educationContent moved to SummaryView.tsx
+// ModalContent logic inverted to handle title and content directly
 
 export default function Home() {
   const [activeView, setActiveView] = useState<View>("home");
 
-  const [modalOpen, setModalOpen] = useState<ModalContent>(null);
+  const [modalData, setModalData] = useState<{ title: string; content: React.ReactNode } | null>(null);
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -69,21 +39,10 @@ export default function Home() {
     }
   }, []);
 
-  const openModal = (content: ModalContent) => setModalOpen(content);
-  const closeModal = () => setModalOpen(null);
+  const openModal = (title: string, content: React.ReactNode) => setModalData({ title, content });
+  const closeModal = () => setModalData(null);
 
-  const getModalContent = () => {
-    switch (modalOpen) {
-      case "experience":
-        return { title: "Professional Experience", content: experienceContent };
-      case "education":
-        return { title: "Education & Skills", content: educationContent };
-      default:
-        return { title: "", content: null };
-    }
-  };
-
-  const { title, content } = getModalContent();
+  // getModalContent removed since components pass content and title directly
 
   const renderView = () => {
     switch (activeView) {
@@ -92,8 +51,8 @@ export default function Home() {
       case "summary":
         return (
           <SummaryView
-            onOpenExperience={() => openModal("experience")}
-            onOpenEducation={() => openModal("education")}
+            onOpenExperience={(content, title) => openModal(title, content)}
+            onOpenEducation={(content, title) => openModal(title, content)}
           />
         );
       case "skills":
@@ -143,9 +102,9 @@ export default function Home() {
           </GlassCard>
 
           <AnimatePresence>
-            {modalOpen && (
-              <TimelineModal title={title} onClose={closeModal}>
-                {content}
+            {modalData && (
+              <TimelineModal title={modalData.title} onClose={closeModal}>
+                {modalData.content}
               </TimelineModal>
             )}
           </AnimatePresence>
