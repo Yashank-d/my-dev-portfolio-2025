@@ -22,7 +22,7 @@ const HomeView = () => {
               Yashank D
             </h1>
             <h2 className="text-xl md:text-3xl text-gray-200">
-              Front-end Developer <br />& Creative Coder
+              Frontend Developer &middot; Ex-Enterprise Engineer
             </h2>
           </div>
 
@@ -54,8 +54,9 @@ const HomeView = () => {
 
         <div className="max-w-xl flex flex-col z-20 text-left lg:text-right mt-12 lg:mt-auto lg:mb-auto lg:items-end">
           <p className="text-lg text-gray-200 leading-relaxed">
-            I build with purpose and precision, turning complex problems into
-            clean, &#34;invisible&#34; code and beautiful user experiences.
+            2.5 years of enterprise engineering at TCS, now building
+            full-stack products from scratch &mdash; where automation-hardened
+            code discipline meets considered design.
           </p>
           <div className="w-24 h-1 bg-primary-accent mt-6 mb-6 mx-0 lg:ml-auto" />
           <p className="text-lg md:text-xl text-primary-accent font-semibold">
