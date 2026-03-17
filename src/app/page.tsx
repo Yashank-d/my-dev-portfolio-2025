@@ -18,10 +18,10 @@ const experienceContent = (
   <div className="flex flex-col gap-6">
     <div>
       <h3 className="text-xl font-semibold text-white">
-        Automation Test Engineer
+        Software Engineer – Automation & Quality
       </h3>
       <p className="text-primary-accent">Dec 2021 - Sep 2024</p>
-      <p className="text-gray-300">Tata Consultancy Services (TCS)</p>
+      <p className="text-gray-300">Tata Consultancy Services (TCS) &middot; Client: LSEG</p>
       <p className="mt-2 text-gray-400">
         Engineered automation scripts and frameworks, ensuring software quality.
         My eye for detail helped catch critical bugs before they reached users.
