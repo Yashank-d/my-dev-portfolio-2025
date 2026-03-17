@@ -56,7 +56,7 @@ const ContactView = () => {
     }
   };
   return (
-    <div className="flex h-full w-full flex-col p-6 md:p-12 lg:p-24 items-center">
+    <div className="flex h-full w-full flex-col p-6 md:p-12 lg:p-24 pb-32 md:pb-32 lg:pb-32 items-center">
       <h1 className="mb-10 font-heading text-4xl font-bold">Get in Touch</h1>
       <form
         onSubmit={handleSubmit}

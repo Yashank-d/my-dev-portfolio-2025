@@ -38,7 +38,7 @@ const educationContent = (
 
 const SummaryView = ({ onOpenExperience, onOpenEducation }: Props) => {
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center p-12 text-center md:p-24">
+    <div className="flex h-full w-full flex-col items-center justify-center p-12 text-center md:p-24 pb-32 md:pb-32 lg:pb-32">
       <h1 className="mb-6 font-heading text-4xl font-bold md:text-6xl">
         From Tester to Creator
       </h1>

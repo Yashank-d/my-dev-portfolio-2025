@@ -61,7 +61,7 @@ const skillCategories = [
 
 const SkillsView = () => {
   return (
-    <div className="w-full flex-col p-6 md:p-12 lg:p-24">
+    <div className="w-full flex-col p-6 md:p-12 lg:p-24 pb-32 md:pb-32 lg:pb-32">
       <h1 className="mb-6 font-heading text-3xl font-bold md:text-5xl lg:text-6xl">
         My Toolkit
       </h1>

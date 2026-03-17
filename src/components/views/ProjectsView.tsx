@@ -26,7 +26,7 @@ const projects = [
 
 const ProjectsView = () => {
   return (
-    <div className="flex w-full flex-col p-6 md:p-12 lg:p-24 pb-10">
+    <div className="flex w-full flex-col p-6 md:p-12 lg:p-24 pb-28 md:pb-32 lg:pb-32">
       <h1 className="mb-2 font-heading text-3xl font-bold md:text-5xl lg:text-6xl text-center">
         Selected Work
       </h1>
