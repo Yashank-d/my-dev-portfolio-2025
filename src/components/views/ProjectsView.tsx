@@ -18,7 +18,7 @@ const projects = [
       "Sole founder and engineer. Built a full-stack offline social community platform for Bengaluru — event booking, QR ticketing, waitlist management, admin dashboard, team RBAC, and email delivery via Gmail SMTP. Live in production.",
     tags: ["Next.js 16", "TypeScript", "Tailwind CSS v4", "Supabase", "Prisma", "GSAP"],
     image: "/thesocialplug-preview.jpg",
-    liveLink: "https://thesocialplug.vercel.app",
+    liveLink: "https://thesocialplug.vercel.app/events",
     repoLink: null,
     isPrivate: true,
   },
